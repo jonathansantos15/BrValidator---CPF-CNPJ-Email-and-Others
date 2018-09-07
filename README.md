@@ -1,6 +1,6 @@
 ## SmartValidation
 
-#### a SmartValidation é uma biblioteca tem como objetivo prover validações que são utilizadas diariamente por desenvolvedores em seus software, como validações de Email, CPF, CNPJ, e etc.
+#### A SmartValidation é uma biblioteca tem como objetivo prover validações que são utilizadas diariamente por desenvolvedores em seus software, como validações de Email, CPF, CNPJ, e etc.
 
 
 #### Dentre as validações disponíveis estão:
