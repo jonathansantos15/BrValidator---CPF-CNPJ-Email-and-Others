@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace SmartValidation.Lib.Standard
 {
@@ -27,6 +28,33 @@ namespace SmartValidation.Lib.Standard
             sumChars = (sumChars * 10) % 11;
 
             return sumChars.ToString() == cpf[10].ToString() ? true : false;
+        }
+
+        public static Boolean ValidateCNPJ(string cnpj)
+        {
+            if (cnpj.Length != 14)
+                return false;
+
+            if (cnpj.Any(n => n < '0' || n > '9'))
+                return false;
+
+            var cnpjNums = cnpj.Select(c => Convert.ToInt32(c.ToString()));
+
+            int[] firstMultipliers = new int[] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int sum = firstMultipliers.Zip(cnpjNums, (m, c) => m * c).Sum();
+
+            int firstVerifyingDigit = (sum % 11) < 2 ? 0 : 11 - sum % 11;
+            if (cnpj[12].ToString() != firstVerifyingDigit.ToString())
+                return false;
+
+            int[] secondMultipliers = new int[] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+            sum = secondMultipliers.Zip(cnpjNums, (m, c) => m * c).Sum();
+
+            int secondVerifyingDigit = (sum % 11) < 2 ? 0 : 11 - sum % 11;
+            if (cnpj[13].ToString() != secondVerifyingDigit.ToString())
+                return false;
+
+            return true;
         }
     }
 }

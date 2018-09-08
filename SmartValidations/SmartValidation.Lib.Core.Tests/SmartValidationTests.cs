@@ -51,5 +51,35 @@ namespace SmartValidation.Lib.Core.Tests
 
             cpfIsValid.Should().BeFalse();
         }
+
+        [Theory]
+        [InlineData("30409232000169")]
+        [InlineData("09347313000195")]
+        public void TestCnpjMustBeValid(string cnpj)
+        {
+            Boolean cnpjIsValid = Standard.SmartValidation.ValidateCNPJ(cnpj);
+
+            cnpjIsValid.Should().BeTrue();
+        }
+
+        [Theory]
+        [InlineData("30409232100169")]
+        [InlineData("09347313000191")]
+        public void TestCnpjMustBeInvalid(string cnpj)
+        {
+            Boolean cnpjIsValid = Standard.SmartValidation.ValidateCNPJ(cnpj);
+
+            cnpjIsValid.Should().BeFalse();
+        }
+
+        [Theory]
+        [InlineData("304092321001XX")]
+        [InlineData("O9347313000191")]
+        public void TestCnpjWithLettersMustBeInvalid(string cnpj)
+        {
+            Boolean cnpjIsValid = Standard.SmartValidation.ValidateCNPJ(cnpj);
+
+            cnpjIsValid.Should().BeFalse();
+        }
     }
 }
