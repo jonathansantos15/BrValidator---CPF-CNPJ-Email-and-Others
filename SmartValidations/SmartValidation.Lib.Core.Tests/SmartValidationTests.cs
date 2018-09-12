@@ -53,6 +53,16 @@ namespace SmartValidation.Lib.Core.Tests
         }
 
         [Theory]
+        [InlineData("746302072O1")]
+        [InlineData("24356766l13")]
+        public void TestCpfWithLettersMustBeInvalid(string cpf)
+        {
+            Boolean cpfIsValid = Standard.SmartValidation.ValidateCNPJ(cpf);
+
+            cpfIsValid.Should().BeFalse();
+        }
+
+        [Theory]
         [InlineData("30409232000169")]
         [InlineData("09347313000195")]
         public void TestCnpjMustBeValid(string cnpj)
@@ -80,6 +90,44 @@ namespace SmartValidation.Lib.Core.Tests
             Boolean cnpjIsValid = Standard.SmartValidation.ValidateCNPJ(cnpj);
 
             cnpjIsValid.Should().BeFalse();
+        }
+
+        [Theory]
+        [InlineData("11111111111")]
+        [InlineData("22222222222")]
+        [InlineData("33333333333")]
+        [InlineData("44444444444")]
+        [InlineData("55555555555")]
+        [InlineData("66666666666")]
+        [InlineData("77777777777")]
+        [InlineData("88888888888")]
+        [InlineData("99999999999")]
+        [InlineData("00000000000")]
+        public void TestCnpjfWithEqualNumbersMustBeInvalid(string cnpj)
+        {
+            Boolean cnpjIsValid = Standard.SmartValidation.ValidateCNPJ(cnpj);
+
+            cnpjIsValid.Should().BeFalse();
+        }
+
+        [Theory]
+        [InlineData("test@")]
+        [InlineData("test")]
+        public void TestMailMustBeInvalid(string email)
+        {
+            Boolean mailIsValid = Standard.SmartValidation.ValidateMail(email);
+
+            mailIsValid.Should().BeFalse();
+        }
+
+        [Theory]
+        [InlineData("test@test")]
+        [InlineData("test@test.com.br")]
+        public void TestMailMustBeValid(string email)
+        {
+            Boolean mailIsValid = Standard.SmartValidation.ValidateMail(email);
+
+            mailIsValid.Should().BeTrue();
         }
     }
 }
