@@ -63,7 +63,7 @@ namespace SmartValidation.Lib.Core.Tests
         }
 
         [Theory]
-        [InlineData("30409232000169")]
+        [InlineData("11444777000161")]
         [InlineData("09347313000195")]
         public void TestCnpjMustBeValid(string cnpj)
         {
@@ -111,6 +111,16 @@ namespace SmartValidation.Lib.Core.Tests
         }
 
         [Theory]
+        [InlineData("test@test.com.br")]
+        public void TestMailMustBeValid(string email)
+        {
+            Boolean mailIsValid = Standard.SmartValidation.ValidateMail(email);
+
+            mailIsValid.Should().BeTrue();
+        }
+
+        [Theory]
+        [InlineData("test@test")]
         [InlineData("test@")]
         [InlineData("test")]
         public void TestMailMustBeInvalid(string email)
@@ -118,16 +128,6 @@ namespace SmartValidation.Lib.Core.Tests
             Boolean mailIsValid = Standard.SmartValidation.ValidateMail(email);
 
             mailIsValid.Should().BeFalse();
-        }
-
-        [Theory]
-        [InlineData("test@test")]
-        [InlineData("test@test.com.br")]
-        public void TestMailMustBeValid(string email)
-        {
-            Boolean mailIsValid = Standard.SmartValidation.ValidateMail(email);
-
-            mailIsValid.Should().BeTrue();
         }
     }
 }
