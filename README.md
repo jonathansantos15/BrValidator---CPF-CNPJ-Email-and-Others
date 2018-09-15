@@ -7,13 +7,13 @@
 
 ###### Validação de CPF
 
-#### Dentre as futuras validações a serem disponibilizadas:
-
-###### Validação de RG
-
 ###### Validação de Email
 
 ###### Validação de CNPJ
+
+#### Dentre as futuras validações a serem disponibilizadas:
+
+###### Validação de RG
 
 ###### Validação de CEI
 
