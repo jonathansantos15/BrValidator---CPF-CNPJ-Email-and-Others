@@ -2,9 +2,9 @@ using FluentAssertions;
 using System;
 using Xunit;
 
-namespace SmartValidation.Lib.Core.Tests
+namespace BrValidator.Lib.Core.Tests
 {
-    public class SmartValidationTests
+    public class BrValidatorTests
     {
         [Theory]
         [InlineData("20558041892")]
@@ -15,7 +15,7 @@ namespace SmartValidation.Lib.Core.Tests
         [InlineData("24356766113")]
         public void TestCpfMustBeValid(string cpf)
         {
-            Boolean cpfIsValid = Standard.SmartValidation.ValidateCPF(cpf);
+            Boolean cpfIsValid = Standard.BrValidator.ValidateCPF(cpf);
 
             cpfIsValid.Should().BeTrue();
         }
@@ -29,7 +29,7 @@ namespace SmartValidation.Lib.Core.Tests
         [InlineData("24356726113")]
         public void TestCpfMustBeInvalid(string cpf)
         {
-            Boolean cpfIsValid = Standard.SmartValidation.ValidateCPF(cpf);
+            Boolean cpfIsValid = Standard.BrValidator.ValidateCPF(cpf);
 
             cpfIsValid.Should().BeFalse();
         }
@@ -47,7 +47,7 @@ namespace SmartValidation.Lib.Core.Tests
         [InlineData("00000000000")]
         public void TestCpfWithEqualNumbersMustBeInvalid(string cpf)
         {
-            Boolean cpfIsValid = Standard.SmartValidation.ValidateCPF(cpf);
+            Boolean cpfIsValid = Standard.BrValidator.ValidateCPF(cpf);
 
             cpfIsValid.Should().BeFalse();
         }
@@ -57,7 +57,7 @@ namespace SmartValidation.Lib.Core.Tests
         [InlineData("24356766l13")]
         public void TestCpfWithLettersMustBeInvalid(string cpf)
         {
-            Boolean cpfIsValid = Standard.SmartValidation.ValidateCNPJ(cpf);
+            Boolean cpfIsValid = Standard.BrValidator.ValidateCNPJ(cpf);
 
             cpfIsValid.Should().BeFalse();
         }
@@ -67,7 +67,7 @@ namespace SmartValidation.Lib.Core.Tests
         [InlineData("09347313000195")]
         public void TestCnpjMustBeValid(string cnpj)
         {
-            Boolean cnpjIsValid = Standard.SmartValidation.ValidateCNPJ(cnpj);
+            Boolean cnpjIsValid = Standard.BrValidator.ValidateCNPJ(cnpj);
 
             cnpjIsValid.Should().BeTrue();
         }
@@ -77,7 +77,7 @@ namespace SmartValidation.Lib.Core.Tests
         [InlineData("09347313000191")]
         public void TestCnpjMustBeInvalid(string cnpj)
         {
-            Boolean cnpjIsValid = Standard.SmartValidation.ValidateCNPJ(cnpj);
+            Boolean cnpjIsValid = Standard.BrValidator.ValidateCNPJ(cnpj);
 
             cnpjIsValid.Should().BeFalse();
         }
@@ -87,7 +87,7 @@ namespace SmartValidation.Lib.Core.Tests
         [InlineData("O9347313000191")]
         public void TestCnpjWithLettersMustBeInvalid(string cnpj)
         {
-            Boolean cnpjIsValid = Standard.SmartValidation.ValidateCNPJ(cnpj);
+            Boolean cnpjIsValid = Standard.BrValidator.ValidateCNPJ(cnpj);
 
             cnpjIsValid.Should().BeFalse();
         }
@@ -105,7 +105,7 @@ namespace SmartValidation.Lib.Core.Tests
         [InlineData("00000000000")]
         public void TestCnpjfWithEqualNumbersMustBeInvalid(string cnpj)
         {
-            Boolean cnpjIsValid = Standard.SmartValidation.ValidateCNPJ(cnpj);
+            Boolean cnpjIsValid = Standard.BrValidator.ValidateCNPJ(cnpj);
 
             cnpjIsValid.Should().BeFalse();
         }
@@ -114,7 +114,7 @@ namespace SmartValidation.Lib.Core.Tests
         [InlineData("test@test.com.br")]
         public void TestMailMustBeValid(string email)
         {
-            Boolean mailIsValid = Standard.SmartValidation.ValidateMail(email);
+            Boolean mailIsValid = Standard.BrValidator.ValidateMail(email);
 
             mailIsValid.Should().BeTrue();
         }
@@ -125,7 +125,7 @@ namespace SmartValidation.Lib.Core.Tests
         [InlineData("test")]
         public void TestMailMustBeInvalid(string email)
         {
-            Boolean mailIsValid = Standard.SmartValidation.ValidateMail(email);
+            Boolean mailIsValid = Standard.BrValidator.ValidateMail(email);
 
             mailIsValid.Should().BeFalse();
         }

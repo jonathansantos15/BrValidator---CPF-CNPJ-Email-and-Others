@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Linq;
 
-namespace SmartValidation.Lib.Standard
+namespace BrValidator.Lib.Standard
 {
-    public static class SmartValidation
+    public static class BrValidator
     {
         public static Boolean ValidateMail(String mail)
         {

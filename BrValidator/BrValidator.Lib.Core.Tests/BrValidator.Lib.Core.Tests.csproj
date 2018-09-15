@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SmartValidation.Lib.Standard\SmartValidation.Lib.Standard.csproj" />
+    <ProjectReference Include="..\BrValidator.Lib.Standard\BrValidator.Lib.Standard.csproj" />
   </ItemGroup>
 
 </Project>
