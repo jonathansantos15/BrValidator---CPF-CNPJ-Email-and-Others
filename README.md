@@ -1,6 +1,6 @@
-## SmartValidation
+## BrValidator
 
-#### A SmartValidation é uma biblioteca tem como objetivo prover validações que são utilizadas diariamente por desenvolvedores em seus software, como validações de Email, CPF, CNPJ, e etc.
+#### BrValidator é uma biblioteca tem como objetivo prover validações que são utilizadas diariamente por desenvolvedores em seus software, como validações de Email, CPF, CNPJ, e etc.
 
 
 #### Dentre as validações disponíveis estão:
@@ -26,4 +26,4 @@
 
 ## Documentação para instalação e uso em:
 
-(https://github.com/jonathansantos15/SmartValidations---CPF-CNPJ-Email-and-Others/wiki)
+(https://github.com/jonathansantos15/BrValidator---CPF-CNPJ-Email-and-Others/wiki)
