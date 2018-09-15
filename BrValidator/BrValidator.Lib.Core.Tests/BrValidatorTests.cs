@@ -129,5 +129,30 @@ namespace BrValidator.Lib.Core.Tests
 
             mailIsValid.Should().BeFalse();
         }
+
+        [Theory]
+        [InlineData("951294465")]
+        [InlineData("11951294465")]
+        [InlineData("5511951294465")]
+        [InlineData("55011951294465")]
+        public void TestCellphoneMustBeValid(string cellphone)
+        {
+            Boolean mailIsValid = Standard.BrValidator.ValidateCellphone(cellphone);
+
+            mailIsValid.Should().BeTrue();
+        }
+
+        [Theory]
+        [InlineData("51294465")]
+        [InlineData("1951294465")]
+        [InlineData("111951294465")]
+        [InlineData("44011951294465")]
+        [InlineData("099951294465")]
+        public void TestCellphoneMustBeInvalid(string cellphone)
+        {
+            Boolean mailIsValid = Standard.BrValidator.ValidateCellphone(cellphone);
+
+            mailIsValid.Should().BeFalse();
+        }
     }
 }
